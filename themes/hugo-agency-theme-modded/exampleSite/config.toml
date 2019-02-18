@@ -1,11 +1,24 @@
-baseURL = "https://gifted-curie-633ceb.netlify.com/"
+# Site settings
+baseurl = "https://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "hugo-agency-theme-modded"
+title = "Agency"
+theme = "hugo-agency-theme"
+
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
 
 [params]
-  name = "Alex"
-  description = "Awesome guy"
+  # You can use Markdown syntax for urls [text](//url.to/source) or
+  # most longer texts.
+  #
+  # All icons using Fontawesome's icon font. Look at fortawesome.github.io/Font-Awesome/icons/
+  # for more icons. The icons are represented by their corresponding
+  # CSS class.
+
+  # To provide some metadata for search engines feel free to add a few
+  # information about you and your website.
+  name = "Your name"
+  description = "Your description"
   # email = "your@email.com"
 
   # Link custom assets relative to /static
@@ -231,7 +244,7 @@ She worked at Pied Piper for years until they went belly up."""
     title = "Contact us"
     subtitle  = "Lorem ipsum dolor sit amet consectetur."
     buttonText = "Send message"
-    netlify = true
+    # netlify = true
 
     # Since this template is static, the contact form uses www.formspree.io as a
     # proxy. The form makes a POST request to their servers to send the actual
@@ -251,11 +264,11 @@ She worked at Pied Piper for years until they went belly up."""
     # add some custom JS script to finish the implementation.
     # postURL = "https://example.com/mailout/"
 
-    email = "17xande@gmail.com"
+    email = "your@email.com"
 
     # Success and error message overwrite for async contact form
-    thanks = "Thank you for awesomely contacting us."
-    error = "Message could not be send. Please contact us at mail@example.com instead."
+    #thanks = "Thank you for awesomely contacting us."
+    #error = "Message could not be send. Please contact us at mail@example.com instead."
 
     [params.contact.captcha]
       # sitekey = ""
