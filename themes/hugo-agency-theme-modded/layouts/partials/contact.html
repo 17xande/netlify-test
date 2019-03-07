@@ -35,21 +35,21 @@
 
                 {{ with $contact.form.name }}
                 <div class="form-group">
-                  <input class="form-control" id="name" required="required" type="text" name="name" placeholder="{{ with .text }}{{ .  | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}">
+                  <input class="form-control" id="name" required type="text" name="name" placeholder="{{ with .text }}{{ .  | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}">
                   <p class="help-block text-danger"></p>
                 </div>
                 {{ end }}
 
                 {{ with $contact.form.email }}
                 <div class="form-group">
-                  <input class="form-control" id="email" required="required" type="email" name="email" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}">
+                  <input class="form-control" id="email" required type="email" name="email" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}">
                   <p class="help-block text-danger"></p>
                 </div>
                 {{ end }}
 
                 {{ with $contact.form.phone }}
                 <div class="form-group">
-                  <input class="form-control" id="phone" required="required" type="number" name="phone" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}"></textarea>
+                  <input class="form-control" id="phone" required type="number" name="phone" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
                 {{ end }}
@@ -58,7 +58,7 @@
               <div class="col-md-6">
               {{ with $contact.form.message }}
                 <div class="form-group">
-                  <textarea class="form-control" id="message" required="required" name="message" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}"></textarea>
+                  <textarea class="form-control" id="message" required name="message" placeholder="{{ with .text }}{{ . | markdownify }}{{ end }}" data-validation-error-msg="{{ with .warning }}{{ . | markdownify }}{{ end }}"></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
                 {{ end }}

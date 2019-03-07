@@ -1,20 +1,7 @@
-// Smooth scrolling via animate()
 $(document).ready(function(){
   if ($('.g-recaptcha')) {
     checkReCaptcha()
   }
-
-  $("a").on('click', function(event) {
-    if (this.hash && window.location.pathname == "/") {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-        window.location.hash = hash;
-      });
-    }
-  });
 
   // Navigation change on scroll
   var maxOffset = 300;
@@ -61,14 +48,9 @@ $('form[id=contactForm]').submit(function(){
   return false;
 });
 
-// Contact form validation
-$.validate({
-  modules : 'html5, toggleDisabled'
-});
-
-function onContactCaptcha($form) {
-  $('form#contactForm').submit();
-}
+// function onContactCaptcha($form) {
+//   $('form#contactForm').submit();
+// }
 
 function checkReCaptcha() {
   if (typeof grecaptcha === "undefined") {
