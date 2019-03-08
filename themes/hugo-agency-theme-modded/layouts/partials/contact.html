@@ -66,7 +66,7 @@
               </div>
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
-                <div class="text-success" id="success" style="display:none;">
+                <div class="text-success hidden" id="success">
                   {{ with $contact.thanks }}
                     {{ . | markdownify }}
                   {{ else }}
@@ -76,7 +76,7 @@
                 <div class="captcha-error text-danger" id="captcha-error">
                   Message is not sendable due to captcha not loadable. Please contact us at {{ (or $contact.email .Site.Params.email) -}}.
                 </div>
-                <div class="text-danger" id="error" style="display:none;">
+                <div class="text-danger hidden" id="error">
                   {{ with $contact.error }}
                     {{ . | markdownify }}
                   {{ else }}
@@ -84,7 +84,12 @@
                   {{ end }}
                 </div>
                 {{- if $contact.netlify -}}
-                <div data-netlify-recaptcha="true"></div>
+                <div data-netlify-recaptcha="true">
+                  {{- if $contact.test -}}
+                  <script src="https://www.google.com/recaptcha/api.js"></script>
+                  <div class="g-recaptcha" data-sitekey="{{ $contact.testkey }}" disabled="disabled"></div>
+                  {{- end -}}
+                </div>
                 {{- end -}}
                 <br />
                 {{ with $contact.captcha }}

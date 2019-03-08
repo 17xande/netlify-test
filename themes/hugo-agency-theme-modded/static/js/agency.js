@@ -34,19 +34,52 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 // Async contact form
-$('form[id=contactForm]').submit(function(){
-  $.post($(this).attr('action'), $(this).serialize(), function(data, textStatus, jqXHR){
-    $('form[id=contactForm] #success').hide();
-    $('form[id=contactForm] #error').hide();
-    if (jqXHR.status == 200) {
-      $('form[id=contactForm] #success').show();
-    }}, 'json').fail(function(){
-      $('form[id=contactForm] #success').hide();
-      $('form[id=contactForm] #error').hide();
-      $('form[id=contactForm] #error').show();
+const frm = document.querySelector('#contactForm'),
+      success = document.querySelector('#success'),
+      error = document.querySelector('#error');
+
+frm.addEventListener('submit', e => {
+  e.preventDefault();
+  if (grecaptcha.getResponse() === "") {
+    error.classList.remove('hidden');
+    success.classList.add('hidden');
+    return false;
+  }
+
+  let data = new FormData(frm);
+  fetch(frm.action, {
+    method: 'post',
+    body: data
+  }).then(res => {
+    if (res.ok) {
+      success.classList.remove('hidden');
+      error.classList.add('hidden');
+    } else {
+      error.classList.remove('hidden');
+      success.classList.add('hidden');
+      console.error(res);
+    }
+  }).catch(err => {
+    console.error(err);
   });
+
   return false;
 });
+
+// // Async contact form
+// $('form[id=contactForm]').submit(function(){
+//   $.post($(this).attr('action'), $(this).serialize(), function(data, textStatus, jqXHR){
+//     $('form[id=contactForm] #success').hide();
+//     $('form[id=contactForm] #error').hide();
+//     if (jqXHR.status == 200) {
+//       $('form[id=contactForm] #success').show();
+//     }}, 'json').fail(function(){
+//       $('form[id=contactForm] #success').hide();
+//       $('form[id=contactForm] #error').hide();
+//       $('form[id=contactForm] #error').show();
+//   });
+//   return false;
+// });
 
 // function onContactCaptcha($form) {
 //   $('form#contactForm').submit();

@@ -232,6 +232,8 @@ She worked at Pied Piper for years until they went belly up."""
     subtitle  = "Lorem ipsum dolor sit amet consectetur."
     buttonText = "Send message"
     netlify = true
+    test = false
+    testkey = "6LdAvUIUAAAAAHjrjmjtNTcXyKm0WKwefLp-dQv9"
 
     # Since this template is static, the contact form uses www.formspree.io as a
     # proxy. The form makes a POST request to their servers to send the actual
