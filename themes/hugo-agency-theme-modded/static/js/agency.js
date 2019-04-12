@@ -28,9 +28,13 @@ $('body').scrollspy({
     target: '.navbar-fixed-top'
 })
 
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
+// Non-jQuery version of function to close responsive menu on item click
+const navToggle = document.querySelector('button.navbar-toggle'),
+      links = Array.from(document.querySelectorAll('.navbar-collapse ul li a'));
+
+links.forEach(el => {
+  // Trigger a click on the navToggle to hide the nav menu.
+  el.addEventListener('click', e => navToggle.click());
 });
 
 // Async contact form
